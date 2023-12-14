@@ -8,12 +8,19 @@ internal class MoviesControllerTests
     private CustomWebApplicationFactory _factory = null!;
     private HttpClient _client = null!;
 
-    [SetUp]
-    public void Setup()
+    // [SetUp]
+    // public void Setup()
+    // {
+    //     _factory = new CustomWebApplicationFactory();
+    //     _client = _factory.CreateClient();
+    //     _client.Timeout = TimeSpan.FromMinutes(2); // Set timeout to 2 minutes
+    // }
+    
+    [OneTimeSetUp]
+    public void OneTimeSetup()
     {
         _factory = new CustomWebApplicationFactory();
         _client = _factory.CreateClient();
-        _client.Timeout = TimeSpan.FromMinutes(2); // Set timeout to 2 minutes
     }
     
     [TearDown]
