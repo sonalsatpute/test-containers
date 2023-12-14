@@ -12,14 +12,14 @@ internal class MoviesControllerTests
     [SetUp]
     public async Task Setup()
     {
-        var container = new MongoDbBuilder()
-            .WithImage("mongo:latest")
-            .Build();
+        // var container = new MongoDbBuilder()
+        //     .WithImage("mongo:latest")
+        //     .Build();
+        //
+        // await container.StartAsync();
+        // string connectionString = container.GetConnectionString();
 
-        await container.StartAsync();
-        string connectionString = container.GetConnectionString();
-
-        _factory = new CustomWebApplicationFactory(connectionString);
+        _factory = new CustomWebApplicationFactory("connectionString");
         _client = _factory.CreateClient();
         _client.Timeout = TimeSpan.FromMinutes(2); // Set timeout to 2 minutes
     }
