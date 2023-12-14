@@ -1,5 +1,4 @@
 using FluentAssertions;
-using Testcontainers.MongoDb;
 
 namespace movies_api_integration_tests;
 
@@ -10,16 +9,9 @@ internal class MoviesControllerTests
     private HttpClient _client = null!;
 
     [SetUp]
-    public async Task Setup()
+    public void Setup()
     {
-        // var container = new MongoDbBuilder()
-        //     .WithImage("mongo:latest")
-        //     .Build();
-        //
-        // await container.StartAsync();
-        // string connectionString = container.GetConnectionString();
-
-        _factory = new CustomWebApplicationFactory("connectionString");
+        _factory = new CustomWebApplicationFactory();
         _client = _factory.CreateClient();
         _client.Timeout = TimeSpan.FromMinutes(2); // Set timeout to 2 minutes
     }
@@ -31,14 +23,11 @@ internal class MoviesControllerTests
         _client.Dispose();
     }
     
-    
     [Test]
-    public async Task METHOD()
+    public async Task GetMovies_ShouldReturnMovies() 
     {
-        // Arrange
         var responseMessage = await _client.GetAsync("api/Movies");
         
-        // Act
         responseMessage.EnsureSuccessStatusCode();
         var response = await responseMessage.Content.ReadAsStringAsync();
         response.Should().NotBeNullOrEmpty();

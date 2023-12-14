@@ -9,19 +9,11 @@ namespace movies_api_integration_tests;
 
 internal class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
-    private readonly string _connectionString;
-
-    public CustomWebApplicationFactory(string connectionString)
-    {
-        _connectionString = connectionString;
-    }
-
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         var container = new MongoDbBuilder()
             .WithImage("mongo:latest")
             .Build();
-
 
         builder.ConfigureServices(services =>
         {
