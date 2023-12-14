@@ -8,6 +8,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "containers", "containers", 
 		init-mongo.js = init-mongo.js
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movies-api-integration-tests", "movies-api-integration-tests\movies-api-integration-tests.csproj", "{DADF82A4-E549-4DA3-A6B6-72F757A17683}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{EB88FD71-AAE1-4BF2-9996-330277FB9AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB88FD71-AAE1-4BF2-9996-330277FB9AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB88FD71-AAE1-4BF2-9996-330277FB9AC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DADF82A4-E549-4DA3-A6B6-72F757A17683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DADF82A4-E549-4DA3-A6B6-72F757A17683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DADF82A4-E549-4DA3-A6B6-72F757A17683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DADF82A4-E549-4DA3-A6B6-72F757A17683}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
