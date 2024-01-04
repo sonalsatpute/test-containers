@@ -1,3 +1,4 @@
+using DotNet.Testcontainers;
 using FluentAssertions;
 
 namespace movies_api_integration_tests;
@@ -19,6 +20,7 @@ internal class MoviesControllerTests
     [OneTimeSetUp]
     public void OneTimeSetup()
     {
+        ConsoleLogger.Instance.DebugLogLevelEnabled=true;
         Console.SetOut(TestContext.Progress);
         Console.SetError(TestContext.Error);
         

@@ -14,7 +14,7 @@ internal class CustomWebApplicationFactory : WebApplicationFactory<Program>
         Console.WriteLine("ConfigureWebHost: creating container");
         
         var container = new MongoDbBuilder()
-            .WithImage("mongo:3.6")
+            .WithImage("mongo:4.4.26")
             .Build();
         Console.WriteLine("ConfigureWebHost: container created");
         
