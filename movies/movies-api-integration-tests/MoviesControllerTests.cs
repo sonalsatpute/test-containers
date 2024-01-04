@@ -19,6 +19,9 @@ internal class MoviesControllerTests
     [OneTimeSetUp]
     public void OneTimeSetup()
     {
+        Console.SetOut(TestContext.Progress);
+        Console.SetError(TestContext.Error);
+        
         _factory = new CustomWebApplicationFactory();
         _client = _factory.CreateClient();
     }

@@ -38,7 +38,8 @@ COPY . .
 
 RUN dotnet build /p:Version=${BUILD_VER}  ./movies.sln && \
     dotnet publish /src/movies-api/movies-api.csproj -c Release -o /app/movies-api
-
+#ENV TESTCONTAINERS_HOST_OVERRIDE=tcp://192.168.1.4:2375
+COPY ./.testcontainers.properties /root/.testcontainers.properties
 RUN dotnet test ./movies-api-integration-tests/movies-api-integration-tests.csproj --logger "console;verbosity=detailed"
 
 FROM base AS final
@@ -47,9 +48,6 @@ WORKDIR /app
 # Copy the dotnet tools from the build stage
 COPY --from=build /root/.dotnet/tools/ /root/.dotnet/tools
 ENV PATH="$PATH:/root/.dotnet/tools"
-
-# Mount the Docker socket from the host
-# VOLUME /var/run/docker.sock:/var/run/docker.sock
 
 COPY --from=build /app/movies-api .
 ENTRYPOINT ["dotnet", "movies-api.dll"]
