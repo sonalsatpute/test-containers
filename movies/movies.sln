@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "containers", "containers", 
 		docker-compose-mongodb.yml = docker-compose-mongodb.yml
 		Dockerfile = Dockerfile
 		.testcontainers.properties = .testcontainers.properties
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movies-api-integration-tests", "movies-api-integration-tests\movies-api-integration-tests.csproj", "{DADF82A4-E549-4DA3-A6B6-72F757A17683}"
