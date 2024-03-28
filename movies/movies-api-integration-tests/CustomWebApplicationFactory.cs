@@ -33,6 +33,7 @@ internal class CustomWebApplicationFactory : WebApplicationFactory<Program>
             Console.WriteLine("ConfigureWebHost: container started");
             
             string connectionString = container.GetConnectionString();
+            
             Console.WriteLine(connectionString);
             var service = services.SingleOrDefault(d => d.ServiceType == typeof(MoviesService));
             services.Remove(service!);
